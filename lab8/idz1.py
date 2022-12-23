@@ -6,9 +6,19 @@ if __name__ == '__main__':
     a = tuple(map(int, input().split()))
     k = -1
 
-    for i in range(0, len(a) - 1):
-        if a[i] % 2 == 0 and a[i + 1] % 2 == 0:
-            k = i
+    if not a:
+        print(
+            "заданный кортеж пуст",
+            file=sys.stderr
+        )
+        exit(1)
+
+    for i in a:
+        if i < len(a) - 1:
+            if a[i] % 2 == 0 and a[i + 1] % 2 == 0:
+                k = i
+        else:
+            break
 
     if k == -1:
         print("Нет таких пар")
